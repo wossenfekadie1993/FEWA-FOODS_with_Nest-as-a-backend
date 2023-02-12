@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fewa Foods</title>
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist\css\bootstrap.css">
+    <script defer src="./javascript/order.js"></script>
+    <script>
+             const verifyUser = async () => {
+            const jwt = localStorage.getItem("jwt")
+            if(!jwt){
+                window.location.href = "./login.html"
+                return
+            }
+    const response = await fetch("http://localhost:4000/user/verifyuser", {
+        method: "POST",
+        body: JSON.stringify({
+            jwt: jwt
+        }),
+        credentials: "same-origin",
+        headers: {
+            "content-type": "application/json; charset=UTF-8"
+        }
+    })
+    const data = await response.json()
+    console.log(data)
+    if(!data.success){
+        window.location.href = "./login.html"
+        return
+    }
+    
+    
+}
+verifyUser()
+    </script>
+</head>
+<body style="width: 100vw;">
+    <div class="page">
+        <header class="navbar navbar-light bg-dark navbar-expand-lg sticky-top" height>
+
+            <div class=" d-line-block navbar-brand mb-0 align-top"><img src="images\LogoMakr-4K9CGm.png" alt="logo" height="100" width="100" ></div>
+            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation"class="navbar-toggler bg-warning"><span class="navbar-toggler-icon"></span></button>
+    
+            <nav class="colapse navbar-collapse" id="navbarNav" >
+                <div class="navbar-nav  ms-auto">
+                <a class="nav-link link-warning  " href="index.html">Home</a>
+                <a class="nav-link link-warning" href="about.html">About</a>
+                <a class="nav-link link-warning" href="menu.html">Menu</a>
+                <a class="nav-link link-warning" href="reservation.html">Reservation</a>
+                <a class="nav-link link-warning" href="order.html">Order</a>
+                <a class="nav-link link-warning" href="contact.html">Contact Us</a>
+            <div>
+                
+            </nav>
+            
+        
+        </header>
+    <main>
+        <section >
+        <h1 class="h1 text-center text-danger">Order</h1>
+        <h2 class="h2 text-center text-warning">Order now we provide the fastest deivery</h2>
+        <section class="row" alt="form-page">
+            <div class="col-lg-6"><img class="img-fluid" src="images\delivery.jpg" alt="delivery"></div>
+            <section class="col-lg-6">
+            <form novalidate class="needs-validation "id="form"action="">
+                    <section class="row">
+                        <section class="col form-group">
+                            <label  class="form-check-label"  for="Name">Name</label>
+                            <input required id="Name"  class="form-control p-2"type="text" placeholder="Name">
+                        </section>
+                        <section class="col form-group">
+                            <label class="form-check-label" for="phone">number</label>
+                            <input required id="phone" class="form-control p-2" type="number" placeholder="number">
+                        </section>
+                    </section>
+                        <section class="row">
+                        <section class=" col form-group ">
+                            <label class="form-check-label " for="Address">Adress</label>
+                            <input  required id="Address"  class="form-control p-2"type="text" placeholder="Your Address">
+                        </section>
+                        <section class="col form-group">
+                            <label class="form-check-label" for="time">Time</label>
+                            <input id="email" class="form-control p-2" type="datetime" placeholder="Time">
+                        </section>
+                        </section>
+                        <section class="row">
+                            <section class=" col form-group ">
+                                <label class="form-check-label " for="oder">order</label>
+                                <input required id="order"  class="form-control p-2"type="text" placeholder="your orders">
+                            </section>
+                            <section class="col form-group">
+                                <label class="form-check-label"for="item">total items</label>
+                                <input required id="item" class="form-control p-2" type="number" placeholder="how many">
+                            </section>
+                            </section>
+                            <section class="row">
+                                <section class=" col form-group ">
+                                    <label class="form-check-label "for="extra">Extra</label>
+                                    <input id="extra"  class="form-control p-2 w-50"type="text" placeholder="Extra">
+                                </section>
+                
+                <section>
+                <label for="other-info" class="form-check-label ">Your Message</label>
+                    <textarea class="form-control"placeholder="Message" name="" id="other-info" cols="10" rows="5"></textarea>
+                </section>
+                </section>
+                <input class="btn btn-warning mb-2 mt-2  rounded w-50 m-auto" id="orderBtn" type="submit" value="Order" >
+                <section class="d-flex justify-content-start gap-3" >
+                    <input style="width: 50%;" class="btn btn-danger mb-2 mt-2  rounded w-50 m-auto" id="cancelBtn" type="submit" value="Cancel Order" >
+                    <input id="cancelInput" type="text" style="width: 50%;" placeholder="To cancel provide phonenumber">
+                </section>
+
+                </form>
+            </section>
+            </section>
+            </form>
+            
+            <div height="100px">
+                <section>
+                
+                    <h1>Your Orders</h1>
+                    <section class="bg-dark">
+                        <input placeholder="insert phone number" id="getInput" type="text">
+                        <button id="getBtn">Get</button>
+                    </section>
+
+                </section>
+                
+                <p id="displayOrder"></p>
+            </div>
+        </section>
+        </section>
+        </section>
+        <footer class="bg-black py-1">
+            <section alt="social-media accounts" >
+            <ul class="align text-center row mx-0 text-light d-flex justify-content-around">
+                <a class="h4 text-decoration-none link-warning"href="https://twitter.com/">Twitter</a>
+                <a class="h4 text-decoration-none link-warning"href="https://www.instagram.com/">Instagram</a>
+                <a class="h4 text-decoration-none link-warning"href="https://www.facebook.com/">Facebook</a>
+                <a class="h4 text-decoration-none link-warning"href="https://www.linkedin.com/">LinkedIn</a>
+                <p class="h5">© Copyricons</p>
+            </ul>
+            
+        </section>
+        </footer>
+        
+    </main>
+    
+</div>
+</body>
+<script src="bootstrap-5.3.0-alpha1-dist\js\bootstrap.js"></script>
+<script src="javascript\validation.js"></script>
+
+</html>
