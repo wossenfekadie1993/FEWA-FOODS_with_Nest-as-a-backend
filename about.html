@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fewa Foods</title>
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist\css\bootstrap.css">
+    <script>
+             const verifyUser = async () => {
+            const jwt = localStorage.getItem("jwt")
+            if(!jwt){
+                window.location.href = "./login.html"
+                return
+            }
+    const response = await fetch("http://localhost:4000/user/verifyuser", {
+        method: "POST",
+        body: JSON.stringify({
+            jwt: jwt
+        }),
+        credentials: "same-origin",
+        headers: {
+            "content-type": "application/json; charset=UTF-8"
+        }
+    })
+    const data = await response.json()
+    console.log(data)
+    if(!data.success){
+        window.location.href = "./login.html"
+        return
+    }
+    
+    
+}
+verifyUser()
+    </script>
+</head>
+<body class="row">
+    <div class="about">
+        <header class="navbar navbar-light bg-dark navbar-expand-lg sticky-top" height>
+
+            <div class=" d-line-block navbar-brand mb-0 align-top"><img src="images\LogoMakr-4K9CGm.png" alt="logo" height="100" width="100" ></div>
+            <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation"class="navbar-toggler bg-warning"><span class="navbar-toggler-icon"></span></button>
+    
+            <nav class="colapse navbar-collapse" id="navbarNav" >
+                <div class="navbar-nav  ms-auto">
+                <a class="nav-link link-warning " href="index.html">Home</a>
+                <a class="nav-link link-warning" href="about.html">About</a>
+                <a class="nav-link link-warning" href="menu.html">Menu</a>
+                <a class="nav-link link-warning" href="reservation.html">Reservation</a>
+                <a class="nav-link link-warning" href="order.html">Order</a>
+                <a class="nav-link link-warning" href="contact.html">Contact Us</a>
+            <div>
+                
+            </nav>
+            
+        
+        </header>
+    <main class="about-page row ">
+        <img  class="bg-ih-50 col-12 "src="images\restaurantimg.jpg" height="650rem"alt="restaurant-picture">
+        <section class="row bg-black text-warning" alt="about-us">
+            <h1 class="text-center">About Us</h1>
+            <h2 >Why Choose US?</h2>
+            <p class="w-50 text-white">Fewa  is a compilation of lively dining experiences.Fewa celebrates the best of Ethiopian and forign dishes with welcoming hospitality and service. Staying true to Ethiopian dining traditions, Fewa also offers a “For the Table” chef-curated option for a family-style experience.</p>
+            <ul class="list">
+                <h3>Our Chefs</h3>
+                <li class="text-white">Tamirat beyene </li>
+                <li class="text-white">Mintesnot Beni</li>
+                <li class="text-white">Yenoah Bonbe</li>
+            </ul>
+            <ul>
+                <h3>working hours</h3>
+                <li class="text-white">Monday-Sunday 5-10:30 pm</li>
+                <h3 >LOcation</h3>
+                <li class="text-white">Addis Ababa 4-kilo</li>
+                
+            </ul>
+            
+        </section>
+        <section class="bg-dark row" alt="customers-review">
+            <center><h1 class="h3 text-danger">Customers Reviews</h1></center>
+            <table class="row">
+                <tr class="row w-100 text-center" width="100">
+                    <td class="col-lg-4 text-center "><img class="rounded-5 " src="images\person 1.jpg" alt="person1">
+                        <p class="h5 text-warning ">Biruik Kebeda</p>
+                        <p class="text-center text-warning">“This is always our breakfast stop before heading home from vacation. Always delicious. Always great service.</p>
+                    </td>
+            
+                    <td class="col-lg-4 align-content-center "><img class="rounded-5"src="images\person 2.jpg" alt="person3">
+                        <p class="text-warning h5">Temesgen Gebremeden</p>
+                        <p class="text-warning ">"One of the best places I’ve eaten on."</p>
+                        
+                    </td>
+
+                    <td class="col-lg-4 align-content-center m"><img class="rounded-5" src="images\person 3.jpg" alt="person3">
+                        <p class="h5 text-warning"> Helen Haile </p>
+                        <p class="text-center text-warning">Very good service, good menu,not overly expensive. Food was very good quality all around.</p>
+                    </td >
+                    </tr>
+                    
+                        
+                        <td class="col-lg-4"></td>
+
+                    
+        
+
+            </table>
+            <footer class="bg-black py-1">
+                <section alt="social-media accounts" >
+                <ul class="align text-center row mx-0 text-light d-flex justify-content-around">
+                    <a class="h4 text-decoration-none link-warning"href="https://twitter.com/">Twitter</a>
+                    <a class="h4 text-decoration-none link-warning"href="https://www.instagram.com/">Instagram</a>
+                    <a class="h4 text-decoration-none link-warning"href="https://www.facebook.com/">Facebook</a>
+                    <a class="h4 text-decoration-none link-warning"href="https://www.linkedin.com/">LinkedIn</a>
+                    <p class="h5">© Copyricons</p>
+                </ul>
+                
+            </section>
+            </footer>
+        </section>
+    
+    </main>
+
+
+
+</header>
+</div>
+</body>
+<script src="bootstrap-5.3.0-alpha1-dist\js\bootstrap.js"></script>
+  
+</script>
+</html>
