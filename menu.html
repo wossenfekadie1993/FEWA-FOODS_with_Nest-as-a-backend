@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fewa Foods</title>
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1-dist\css\bootstrap.css">
+    <script>
+             const verifyUser = async () => {
+            const jwt = localStorage.getItem("jwt")
+            if(!jwt){
+                window.location.href = "./login.html"
+                return
+            }
+    const response = await fetch("http://localhost:4000/user/verifyuser", {
+        method: "POST",
+        body: JSON.stringify({
+            jwt: jwt
+        }),
+        credentials: "same-origin",
+        headers: {
+            "content-type": "application/json; charset=UTF-8"
+        }
+    })
+    const data = await response.json()
+    console.log(data)
+    if(!data.success){
+        window.location.href = "./login.html"
+        return
+    }
+    
+    
+}
+verifyUser()
+    </script>
+</head>
+<body class="overflow-x-hidden" width="100%" >
+    <header class="navbar navbar-light bg-dark navbar-expand-lg sticky-top" height>
+
+        <div class=" d-line-block navbar-brand mb-0 align-top"><img src="images\LogoMakr-4K9CGm.png" alt="logo" height="100" width="100" ></div>
+        <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation"class="navbar-toggler bg-warning"><span class="navbar-toggler-icon"></span></button>
+
+        <nav class="colapse navbar-collapse" id="navbarNav" >
+            <div class="navbar-nav  ms-auto">
+            <a class="nav-link link-warning " href="index.html">Home</a>
+            <a class="nav-link link-warning" href="about.html">About</a>
+            <a class="nav-link link-warning" href="menu.html">Menu</a>
+            <a class="nav-link link-warning" href="reservation.html">Reservation</a>
+            <a class="nav-link link-warning" href="order.html">Order</a>
+            <a class="nav-link link-warning" href="contact.html">Contact Us</a>
+        <div>
+           
+        </nav>
+        
+    
+    </header>
+    <mailg 4 p-5 center-column        <section class="menu-section" alt="menu-section">
+        <h1 class="h1 text-center text-danger active">Our Menus</h1>
+        <nav class="text-center menu-nav" alt="menu-navigation">
+        <h4 class=" rounded-3  p-2 h5 d-inline-block m-1 text-danger-emphasis bg-dark"id="All" type="button">All</h4>
+        <h4 class=" rounded-3  p-2 h5 d-inline-block m-1 text-danger-emphasis bg-dark"id="Habesha"type="button">Habesha Foods</h4>
+        <h4 class=" rounded-3  p-2 h5 d-inline-block m-1 text-danger-emphasis bg-dark"id="Burger"type="button">Burgers</h4>
+        <h4 class=" rounded-3  p-2 h5 d-inline-block m-1 text-danger-emphasis bg-dark"id="Pizza"type="button">Pizzas</h4>
+        <h4 class=" rounded-3  p-2 h5 d-inline-block m-1 text-danger-emphasis bg-dark"id="Drink"type="button">Drinks</h4>
+    </nav>
+    </section>
+    <section class="foods">
+        <table>
+            <tr class="row overflow-x-hidden ">
+                <td class="Habesha on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200"  src="images\kitfo.jpg" alt="kitfo">
+                <br><p class="h5 text-danger">Kitfo</p><br>
+            <p class="h5 text-danger">price:400Birr</p></td>
+                <td class="Habesha on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\beyeaynet1.jpg" alt="Beyeaynet">
+                    <br><p class="h5 text-danger">Beyeaynet</p><br>
+                <p class="h5 text-danger">price:200Birr</p></td>
+                <td class="Habesha on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\tibs.jpg" alt="Tibs">
+                    <br><p class="h5 text-danger">Tibs</p><br>
+                <p class="h5 text-danger">price:300Birr</p></td>
+                <td class="Habesha on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200"  src="images\tibs firfr.jpg" alt="Tibs-firfr">
+                    <br><p class="h5 text-danger">Tibs-frfr</p><br>
+                <p class="h5 text-danger">price:200Birr</p></td>
+            
+                <td class="Habesha on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200"  src="images\shiro wat.jpg" alt="Shiro-wat">
+                <br><p class="h5 text-danger">Shiro-wat</p><br>
+            <p class="h5 text-danger">price:150Birr</p></td>
+                <td class="Habesha on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\frfiri.jpg" alt="Yetsom-Firfr">
+                    <br><p class="h5 text-danger">Yetsom-Firfr</p><br>
+                <p class="h5 text-danger">price:80Birr</p></td>
+                <td class="Habesha on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\Doro wat.jpg" alt="Doro-wat">
+                    <br><p class="h5 text-danger">Doro-wat</p><br>
+                <p class="h5 text-danger">price:450Birr</p></td>
+                <td class="Habesha on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\shekla Tibs.jpg" alt="Shekla Tibs">
+                    <br><p class="h5 text-danger">Shekla Tibs</p><br>
+                <p class="h5 text-danger">price:390Birr</p></td>
+            
+                <td class="Burger on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200"  src="images\ham burger.jpg" alt="ham-burger">
+                <br><p class="h5 text-danger">Ham Burger</p><br>
+            <p class="h5 text-danger">price:330Birr</p></td>
+                <td class="Burger on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\Cheese Burger.jpg" alt="Cheese burger">
+                    <br><p class="h5 text-danger">Cheese Burger</p><br>
+                <p class="h5 text-danger">price:300Birr</p></td>
+                <td class="Burger on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\mexican burger.jpg" alt="mexican burger">
+                    <br><p class="h5 text-danger">Mexican Burger</p><br>
+                <p class="h5 text-danger">price:330Birr</p></td>
+                <td class="Burger on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\double burger.jpg" alt="Double Burger">
+                    <br><p class="h5 text-danger">Double Burger</p><br>
+                <p class="h5 text-danger">price:400Birr</p></td>
+            
+                <td class="Pizza on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\tuna piza.jpg" alt="Tuna pizza">
+                <br><p class="h5 text-danger">Tuna pizza</p><br>
+            <p class="h5 text-danger">price:330Birr</p></td>
+                <td class="Pizza on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\vegtable pizza.jpg" alt="vegitable pizza">
+                    <br><p class="h5 text-danger">vegitable pizza</p><br>
+                <p class="h5 text-danger">price:280Birr</p></td>
+                <td class="Pizza on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\peperoni pizza.jpg" alt="peperoni pizza">
+                    <br><p class="h5 text-danger">peperoni pizza</p><br>
+                <p class="h5 text-danger">price:390Birr</p></td>
+                <td class="Pizza on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\beef pizza.jpg" alt="Beef pizza">
+                    <br><p class="h5 text-danger">Beef pizza</p><br>
+                <p class="h5 text-danger">price:400Birr</p></td>
+                <td class="Drink on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\soft drinks.jpg" alt="Soft-drinks">
+                <br><p class="h5 text-danger">Soft-drinks</p><br>
+            <p class="h5 text-danger">price:25Birr</p></td>
+                <td class="Drink on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\beer.jpg" alt="Beer">
+                    <br><p class="h5 text-danger">Beer</p><br>
+                <p class="h5 text-danger">price:40Birr</p></td>
+                <td class="Drink on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\bottled watter.jpg" alt="bottled water">
+                    <br><p class="h5 text-danger"> 1 litre bottled water</p><br>
+                <p class="h5 text-danger">price:25Birr</p></td>
+                 <td class="Drink on feature-box col-lg-4 p-5 center-column"><img class="rounded-5"height="200"width="200" src="images\jebena buna.jpg" alt="Jebena buna">
+                    <br><p class="h5 text-danger">Ye Jebena Buna</p><br>
+                <p class="h5 text-danger">price:10Birr</p></td>
+            </tr>
+        </table>
+        <footer class="bg-black py-1">
+            <section alt="social-media accounts" >
+            <ul class="align text-center row mx-0 text-light d-flex justify-content-around">
+                <a class="h4 text-decoration-none link-warning"href="https://twitter.com/">Twitter</a>
+                <a class="h4 text-decoration-none link-warning"href="https://www.instagram.com/">Instagram</a>
+                <a class="h4 text-decoration-none link-warning"href="https://www.facebook.com/">Facebook</a>
+                <a class="h4 text-decoration-none link-warning"href="https://www.linkedin.com/">LinkedIn</a>
+                <p class="h5">© Copyricons</p>
+            </ul>
+            
+        </section>
+        </footer>
+    </main>
+    
+</header>
+</body>
+<script src="javascript\index.js"></script>
+<script src="bootstrap-5.3.0-alpha1-dist\js\bootstrap.js"></script>
+</html>
